@@ -1,14 +1,15 @@
-import { getRepos } from "@/services/github";
+import { getRepos, getFeaturedRepos } from "@/services/github";
 
 export default async function Projects() {
     const repos = await getRepos();
+    const featured = getFeaturedRepos(repos);
 
     return (
         <section className="flex flex-col gap-6">
-        <h2 className="text-2xl font-semibold">Projects</h2>
+        <h2 className="text-2xl font-semibold">Featured Projects</h2>
 
         <div className="grid gap-4 md:grid-cols-2">
-            {repos.map((repo) => (
+            {featured.map((repo) => (
             <a
                 key={repo.id}
                 href={repo.html_url}
