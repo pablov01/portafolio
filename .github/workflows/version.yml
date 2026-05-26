@@ -1,0 +1,99 @@
+name: Tag Action
+
+permissions:
+    contents: write
+    pull-requests: write
+
+on:
+    push:
+        branches: [prod]
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main  # asegura que estamos en la rama correcta
+
+      - name: Obtener versión actual
+        id: version
+        run: |
+          VERSION=$(cat VERSION)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "current_version=v$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Generar changelog automático
+        id: changelog
+        run: |
+          # Obtener el último tag creado
+          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "last_tag=$LAST_TAG" >> $GITHUB_OUTPUT
+
+          # Generar changelog desde el último tag
+          CHANGELOG=$(git log $LAST_TAG..HEAD --pretty=format:"- %s (%h)" --no-merges)
+
+          # Si no hay cambios, no crear release
+          if [ -z "$CHANGELOG" ]; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "no_changes=false" >> $GITHUB_OUTPUT
+            echo "changelog<<EOF" >> $GITHUB_OUTPUT
+            echo "$CHANGELOG" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Verificar si hay cambios
+        if: steps.changelog.outputs.no_changes == 'true'
+        run: |
+          echo "⚠️ No hay nuevos commits desde el último release. No se creará tag."
+          exit 1
+
+      - name: Crear tag (sin borrar)
+        if: steps.changelog.outputs.no_changes == 'false'
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          TAG="v$VERSION"
+
+          # Verificar si el tag ya existe
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "⚠️ El tag $TAG ya existe. No se creará duplicado."
+            exit 1
+          fi
+
+          # Crear tag (sin borrar el anterior)
+          git tag -a "$TAG" -m "Release $TAG"
+          git push origin "$TAG"
+
+      - name: Crear Release con changelog automático
+        if: steps.changelog.outputs.no_changes == 'false'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: Release v${{ steps.version.outputs.version }}
+          body: |
+            ## 🚀 Release v${{ steps.version.outputs.version }}
+
+            ### 📝 Cambios desde último release:
+
+            ${{ steps.changelog.outputs.changelog }}
+
+            ---
+            *Este release fue generado automáticamente por GitHub Actions*
+          draft: false
+          prerelease: false
+          generate_release_notes: true  # GitHub agrega cambios adicionales
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notificar éxito
+        if: success()
+        run: |
+          echo "✅ Release creado exitosamente: v${{ steps.version.outputs.version }}"
