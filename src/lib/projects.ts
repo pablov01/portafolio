@@ -1,4 +1,4 @@
-export const FEATURED_PROJECTS = [
+export const FEATURED_PROJECTS: FeaturedProject[] = [
     {
         repo: "portafolio",
         title: "Developer Portfolio",
@@ -11,6 +11,8 @@ export const FEATURED_PROJECTS = [
         "Tailwind",
         "GitHub API",
         ],
+
+        image: "/projects/portafolio.png",
 
         featured: true,
     },
@@ -28,6 +30,8 @@ export const FEATURED_PROJECTS = [
         "Queues",
         ],
 
+        image: "/projects/portafolio.png",
+
         featured: true,
     },
 
@@ -44,6 +48,17 @@ export const FEATURED_PROJECTS = [
         "Linux",
         ],
 
+        image: "/projects/portafolio.png",
+
         featured: false,
     },
 ];
+
+export type FeaturedProject = {
+    repo: string;
+    title: string;
+    description: string;
+    technologies: string[];
+    image: string;
+    featured: boolean;
+};

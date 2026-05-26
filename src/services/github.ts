@@ -1,14 +1,14 @@
 const GITHUB_USERNAME = "pablov01";
 
 export type GitHubRepo = {
-  id: number;
-  name: string;
-  description: string;
-  html_url: string;
-  stargazers_count: number;
-  language: string;
-  fork: boolean;
-  updated_at: string;
+    id: number;
+    name: string;
+    description: string;
+    html_url: string;
+    stargazers_count: number;
+    language: string;
+    fork: boolean;
+    updated_at: string;
 };
 
 export async function getRepos(): Promise<GitHubRepo[]> {
@@ -39,3 +39,19 @@ export function getFeaturedRepos(repos: GitHubRepo[]) {
         .filter((repo) => repo.stargazers_count > 0 || repo.language)
         .slice(0, 6);
 }
+
+    export async function getRepoByName(name: string) {
+    const res = await fetch(
+        `https://api.github.com/repos/${GITHUB_USERNAME}/${name}`,
+        {
+        next: { revalidate: 3600 },
+        }
+    );
+
+    if (!res.ok) {
+        return null;
+    }
+
+    return res.json();
+}
+
