@@ -1,5 +1,7 @@
+import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
 import Section from "@/components/sections/Section";
+import Skills from "@/components/sections/Skills";
 
 export default function Home() {
   return (
@@ -15,12 +17,11 @@ export default function Home() {
         </p>
       </section>
 
-      <Section title="About">
-        I build backend systems, APIs and automation workflows. 
-        {/* I enjoy working with scalable architectures and modern DevOps practices. */}
-      </Section>
+      <About />
 
       <Projects />
+
+      <Skills />
 
     </main>
   );
