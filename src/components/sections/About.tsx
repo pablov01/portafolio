@@ -1,8 +1,8 @@
 export default function About() {
     return (
-        <section className="flex flex-col gap-6 max-w-3xl">
+        <section className="flex max-w-3xl flex-col gap-6" aria-labelledby="about-title">
         
-        <h2 className="text-2xl font-semibold text-white mb-2">
+        <h2 id="about-title" className="mb-2 text-2xl font-semibold text-white">
             About Me
         </h2>
 

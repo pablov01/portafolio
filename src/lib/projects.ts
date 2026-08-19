@@ -30,9 +30,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
         "Queues",
         ],
 
-        image: "/projects/portafolio.png",
-
-        featured: true,
+        featured: false,
     },
 
     {
@@ -48,8 +46,6 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
         "Linux",
         ],
 
-        image: "/projects/portafolio.png",
-
         featured: false,
     },
 ];
@@ -59,6 +55,6 @@ export type FeaturedProject = {
     title: string;
     description: string;
     technologies: string[];
-    image: string;
+    image?: string;
     featured: boolean;
 };

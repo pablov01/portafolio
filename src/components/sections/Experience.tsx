@@ -26,9 +26,9 @@ const experiences = [
 
     export default function Experience() {
     return (
-    <section className="flex flex-col gap-8 max-w-4xl">
+    <section id="experience" className="flex max-w-4xl flex-col gap-8" aria-labelledby="experience-title">
 
-        <h2 className="text-2xl font-semibold text-white">
+        <h2 id="experience-title" className="text-2xl font-semibold text-white">
         Experience
         </h2>
 
@@ -45,7 +45,7 @@ const experiences = [
             "
             >
 
-            <div className="flex items-center justify-between mb-2">
+            <div className="mb-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                 <h3 className="text-white font-medium">
                 {exp.title}
                 </h3>

@@ -1,10 +1,10 @@
 export default function Contact() {
     return (
-        <section className="flex flex-col gap-8 max-w-3xl">
+        <section id="contact" className="flex max-w-3xl flex-col gap-8" aria-labelledby="contact-title">
 
         <div className="flex flex-col gap-3">
 
-            <h2 className="text-2xl font-semibold text-white">
+            <h2 id="contact-title" className="text-2xl font-semibold text-white">
             Contact
             </h2>
 
@@ -22,41 +22,23 @@ export default function Contact() {
 
         <div className="grid gap-4">
 
-            {/* Email */}
-            <a
-            href="mailto:your@email.com"
-            className="
-                border border-neutral-800
-                rounded-xl
-                p-4
-                hover:border-neutral-600
-                transition-colors
-                bg-neutral-950
-            "
-            >
-            <p className="text-sm text-neutral-500 mb-1">
-                Email
-            </p>
-
-            <p className="text-white">
-                your@email.com
-            </p>
-            </a>
-
             {/* GitHub */}
             <a
             href="https://github.com/pablov01"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Pablo Villalba on GitHub, opens in a new tab"
             className="
                 border border-neutral-800
                 rounded-xl
                 p-4
                 hover:border-neutral-600
-                transition-colors
+                motion-safe:transition-colors
+                focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400
                 bg-neutral-950
             "
             >
-            <p className="text-sm text-neutral-500 mb-1">
+            <p className="mb-1 text-sm font-medium text-neutral-300">
                 GitHub
             </p>
 
@@ -69,16 +51,19 @@ export default function Contact() {
             <a
             href="https://linkedin.com/in/pablov01"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Pablo Villalba on LinkedIn, opens in a new tab"
             className="
                 border border-neutral-800
                 rounded-xl
                 p-4
                 hover:border-neutral-600
-                transition-colors
+                motion-safe:transition-colors
+                focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400
                 bg-neutral-950
             "
             >
-            <p className="text-sm text-neutral-500 mb-1">
+            <p className="mb-1 text-sm font-medium text-neutral-300">
                 LinkedIn
             </p>
 
