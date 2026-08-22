@@ -110,7 +110,7 @@ function HeroProjectContent({ project }: { project: ProjectWithRepo }) {
                 </div>
 
                 <ProjectTechnologies project={project} />
-                {!project.url && <RepositoryUnavailable />}
+                {!project.url && !project.obs && <RepositoryUnavailable />}
             </div>
         </div>
     );
@@ -140,7 +140,7 @@ function ProjectCardContent({ project }: { project: ProjectWithRepo }) {
                 <p className="mt-3 text-sm text-amber-300">{project.obs}</p>
             )}
             <ProjectTechnologies project={project} />
-            {!project.url && <RepositoryUnavailable />}
+            {!project.url && !project.obs && <RepositoryUnavailable />}
         </>
     );
 }
