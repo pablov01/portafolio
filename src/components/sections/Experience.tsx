@@ -2,7 +2,7 @@ const experiences = [
     {
     title: "Full Stack Developer",
     company: "Personal Projects",
-    period: "2023 — Present",
+    period: "2022 — Present",
     description:
         "Building scalable web applications, backend services, and automation tools using Laravel, Next.js, PostgreSQL, and Docker.",
     },

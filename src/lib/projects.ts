@@ -15,6 +15,8 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
         image: "/projects/portafolio.png",
 
         featured: true,
+
+        url: "https://github.com/pablov01/portafolio.git",
     },
 
     {
@@ -29,6 +31,9 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
         "Docker",
         "Queues",
         ],
+
+        image: "/projects/financial-cooperative-system.jpg",
+        obs: "This project is owned by my latest company",
 
         featured: false,
     },
@@ -46,6 +51,8 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
         "Linux",
         ],
 
+        image: "/projects/dev-ops.jpg",
+
         featured: false,
     },
 ];
@@ -57,4 +64,6 @@ export type FeaturedProject = {
     technologies: string[];
     image?: string;
     featured: boolean;
+    url?: string|null;
+    obs?: string|null;
 };

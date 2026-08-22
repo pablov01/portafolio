@@ -10,7 +10,7 @@ export default async function Projects() {
             return {
                 ...project,
                 stars: repoData?.stargazers_count || 0,
-                url: repoData?.html_url,
+                url: repoData?.html_url || project.url,
             };
         })
     );
@@ -104,6 +104,9 @@ function HeroProjectContent({ project }: { project: ProjectWithRepo }) {
                 <div>
                     <h3 className="text-3xl font-bold group-hover:text-white">{project.title}</h3>
                     <p className="mt-4 max-w-2xl leading-relaxed text-neutral-400">{project.description}</p>
+                    {project.obs && (
+                        <p className="mt-3 text-sm text-amber-300">{project.obs}</p>
+                    )}
                 </div>
 
                 <ProjectTechnologies project={project} />
@@ -133,6 +136,9 @@ function ProjectCardContent({ project }: { project: ProjectWithRepo }) {
                 <span className="text-xs text-neutral-300">Stars: {project.stars}</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-neutral-400">{project.description}</p>
+            {project.obs && (
+                <p className="mt-3 text-sm text-amber-300">{project.obs}</p>
+            )}
             <ProjectTechnologies project={project} />
             {!project.url && <RepositoryUnavailable />}
         </>
