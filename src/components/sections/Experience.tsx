@@ -37,12 +37,7 @@ const experiences = [
         {experiences.map((exp) => (
             <div
             key={exp.title}
-            className="
-                border border-neutral-800
-                rounded-xl
-                p-5
-                bg-neutral-950
-            "
+            className="glass hover-3d rounded-xl p-5"
             >
 
             <div className="mb-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">

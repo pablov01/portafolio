@@ -28,15 +28,7 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Pablo Villalba on GitHub, opens in a new tab"
-            className="
-                border border-neutral-800
-                rounded-xl
-                p-4
-                hover:border-neutral-600
-                motion-safe:transition-colors
-                focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400
-                bg-neutral-950
-            "
+            className="glass hover-3d rounded-xl p-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
             >
             <p className="mb-1 text-sm font-medium text-neutral-300">
                 GitHub
@@ -53,15 +45,7 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Pablo Villalba on LinkedIn, opens in a new tab"
-            className="
-                border border-neutral-800
-                rounded-xl
-                p-4
-                hover:border-neutral-600
-                motion-safe:transition-colors
-                focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400
-                bg-neutral-950
-            "
+            className="glass hover-3d rounded-xl p-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
             >
             <p className="mb-1 text-sm font-medium text-neutral-300">
                 LinkedIn

@@ -1,12 +1,12 @@
 export default function About() {
     return (
-        <section className="flex max-w-3xl flex-col gap-6" aria-labelledby="about-title">
+        <section className="glass hover-3d flex max-w-3xl flex-col gap-6 rounded-2xl p-8" aria-labelledby="about-title">
         
         <h2 id="about-title" className="mb-2 text-2xl font-semibold text-white">
             About Me
         </h2>
 
-        <div className="w-12 h-0.5 bg-neutral-700 mb-6"/>
+        <div className="w-12 h-0.5 bg-cyan-400/60 mb-6"/>
 
         <p className="text-neutral-400 leading-relaxed">
             I’m a software developer who enjoys building systems that actually work in real environments.
