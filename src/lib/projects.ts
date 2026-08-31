@@ -55,6 +55,24 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
 
         featured: false,
     },
+
+    {
+        repo: "automation-integration-services",
+        title: "Automation & Integration Services",
+        description:
+        "Background processing and service integration architecture with async workflows and APIs.",
+
+        technologies: [
+        "Laravel",
+        "RabbitMQ",
+        "APIs",
+        "Queues",
+        ],
+
+        image: "/projects/dev-ops.jpg",
+
+        featured: false,
+    },
 ];
 
 export type FeaturedProject = {

@@ -1,9 +1,9 @@
 const skillGroups = [
-    ["Backend", "Laravel, Node.js, Python, Java, REST APIs, system architecture", "Advanced"],
+    ["Backend", "Laravel, PHP, Node.js, Python, FastAPI, Java, Spring, REST APIs, RabbitMQ", "Advanced"],
     ["Frontend", "React, Next.js, Vue, TypeScript, Tailwind CSS", "Intermediate"],
-    ["DevOps", "Docker, Kubernetes, GitHub Actions, CI/CD, Linux servers", "Intermediate"],
+    ["DevOps", "Docker, Kubernetes, Terraform, Grafana, GitHub Actions, CI/CD, Linux, Bash", "Intermediate"],
     ["Databases", "PostgreSQL, MySQL, MongoDB, Elasticsearch", "Advanced"],
-    ["Tools", "Git, Linux, VSCode, Postman, Swagger", "Advanced"],
+    ["Tools", "Git, VSCode, Postman, Swagger, System Architecture", "Advanced"],
 ] as const;
 
 export default function Skills() {
