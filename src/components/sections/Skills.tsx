@@ -6,20 +6,23 @@ const skillGroups = [
     ["Tools", "Git, VSCode, Postman, Swagger, System Architecture", "Advanced"],
 ] as const;
 
+import SkillsNetworkWrapper from "@/components/three/SkillsNetworkWrapper";
+
 export default function Skills() {
     return (
-        <section className="flex max-w-4xl flex-col gap-8" aria-labelledby="skills-title">
+        <section className="relative flex max-w-4xl flex-col gap-8 overflow-hidden rounded-2xl p-1" aria-labelledby="skills-title">
+        <SkillsNetworkWrapper />
 
-        <h2 id="skills-title" className="text-2xl font-semibold text-white">
+        <h2 id="skills-title" className="relative z-10 text-2xl font-semibold text-white">
             Skills
         </h2>
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="relative z-10 grid gap-6 sm:grid-cols-2">
             {skillGroups.map(([name, technologies, level]) => (
-                <div key={name} className="border-l border-cyan-400/60 pl-4">
+                <div key={name} className="glass hover-3d rounded-xl p-5">
                     <h3 className="font-medium text-white">{name}</h3>
-                    <p className="mt-2 text-neutral-400">{technologies}</p>
-                    <span className="mt-3 block text-xs uppercase tracking-wider text-neutral-500">
+                    <p className="mt-2 text-sm text-neutral-400">{technologies}</p>
+                    <span className="mt-3 block text-xs uppercase tracking-wider text-cyan-400/70">
                         {level}
                     </span>
                 </div>

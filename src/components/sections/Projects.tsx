@@ -35,12 +35,12 @@ export default async function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`View ${heroProject.title} on GitHub, opens in a new tab`}
-                        className="group relative block overflow-hidden rounded-2xl border border-neutral-800 bg-linear-to-br from-neutral-950 to-neutral-900 p-8 motion-safe:transition-all motion-safe:duration-300 hover:border-neutral-600 motion-safe:hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
+                        className="group relative block overflow-hidden rounded-2xl glass-strong hover-3d p-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
                     >
                         <HeroProjectContent project={heroProject} />
                     </a>
                 ) : (
-                    <div className="relative overflow-hidden rounded-2xl border border-neutral-800 bg-linear-to-br from-neutral-950 to-neutral-900 p-8">
+                    <div className="relative overflow-hidden rounded-2xl glass-strong p-8">
                         <HeroProjectContent project={heroProject} />
                     </div>
                 )}
@@ -57,12 +57,12 @@ export default async function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`View ${project.title} on GitHub, opens in a new tab`}
-                        className="group rounded-xl border border-neutral-800 bg-neutral-950 p-5 motion-safe:transition-all motion-safe:duration-300 hover:border-neutral-600 motion-safe:hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
+                        className="group rounded-xl glass hover-3d p-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400"
                     >
                         <ProjectCardContent project={project} />
                     </a>
                 ) : (
-                    <div key={project.repo} className="rounded-xl border border-neutral-800 bg-neutral-950 p-5">
+                    <div key={project.repo} className="rounded-xl glass p-5">
                         <ProjectCardContent project={project} />
                     </div>
                 )

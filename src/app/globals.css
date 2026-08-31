@@ -20,7 +20,32 @@
 }
 
 body {
-  background: var(--background);
+  background: #000000;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Glass utilities for Three.js migration */
+.glass {
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+}
+
+.hover-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s, box-shadow 0.3s;
+}
+.hover-3d:hover {
+  transform: translateY(-6px) rotateX(2deg) rotateY(-2deg);
+  border-color: rgba(34, 211, 238, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(34, 211, 238, 0.15), 0 10px 20px -5px rgba(0,0,0,0.5);
 }
