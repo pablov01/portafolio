@@ -1,3 +1,5 @@
+import { PROFILE } from "@/data/profile";
+
 export default function Contact() {
     return (
         <section id="contact" className="flex max-w-3xl flex-col gap-8" aria-labelledby="contact-title">

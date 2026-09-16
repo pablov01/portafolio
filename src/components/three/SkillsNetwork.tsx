@@ -2,19 +2,31 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
+import { SKILL_GROUPS } from "@/data/profile";
 
+// Nodes driven by SKILL_GROUPS (5 groups + center). Positions laid out in circle.
 const NODES: [number, number, number][] = [
-  [0, 0.6, 0],      // center
-  [-1.2, 0.2, -0.3], // backend
-  [1.2, 0.3, -0.5],  // frontend
-  [-0.8, -0.8, 0.2], // devops
-  [0.9, -0.7, 0.4],  // databases
-  [0, -0.2, 0.8],    // tools
+  [0, 0.6, 0], // center — Pablo
+  [-1.2, 0.2, -0.3], // Backend
+  [1.2, 0.3, -0.5], // Frontend
+  [-0.8, -0.8, 0.2], // DevOps
+  [0.9, -0.7, 0.4], // Databases
+  [0, -0.2, 0.8], // Tools
 ];
+// Keep in sync with SKILL_GROUPS length
+if (NODES.length - 1 !== SKILL_GROUPS.length) console.warn("SkillsNetwork NODES vs SKILL_GROUPS mismatch");
 
 const EDGES: [number, number][] = [
-  [0,1],[0,2],[0,3],[0,4],[0,5],
-  [1,3],[2,4],[3,5],[4,5],[1,2]
+  [0, 1],
+  [0, 2],
+  [0, 3],
+  [0, 4],
+  [0, 5],
+  [1, 3],
+  [2, 4],
+  [3, 5],
+  [4, 5],
+  [1, 2],
 ];
 
 function Network() {

@@ -1,28 +1,4 @@
-const experiences = [
-    {
-    title: "Full Stack Developer",
-    company: "Personal Projects",
-    period: "2022 — Present",
-    description:
-        "Building scalable web applications, backend services, and automation tools using Laravel, Next.js, PostgreSQL, and Docker.",
-    },
-
-    {
-    title: "Backend & DevOps Enthusiast",
-    company: "Self-Hosted Infrastructure",
-    period: "2022 — Present",
-    description:
-        "Working with Linux servers, containerized environments, CI/CD workflows, and infrastructure automation using Docker and GitHub Actions.",
-    },
-
-    {
-    title: "Software Engineering Student",
-    company: "Academic & Personal Projects",
-    period: "2021 — Present",
-    description:
-        "Developing full-stack systems, REST APIs, database architectures, and scalable software solutions focused on real-world scenarios.",
-    },
-    ];
+import { EXPERIENCES } from "@/data/profile";
 
     export default function Experience() {
     return (
@@ -34,7 +10,7 @@ const experiences = [
 
         <div className="flex flex-col gap-6">
 
-        {experiences.map((exp) => (
+        {EXPERIENCES.map((exp) => (
             <div
             key={exp.title}
             className="glass hover-3d rounded-xl p-5"
