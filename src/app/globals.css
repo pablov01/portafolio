@@ -1,51 +1,116 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+    overflow: clip;
+}
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --font-display: var(--font-michroma), "Eurostile", "Arial Black", sans-serif;
+    --font-sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: var(--font-plex-mono), ui-monospace, Menlo, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+    --color-void: #05070c;
+    --color-void-2: #0b0f18;
+    --color-regolith: #c9ccd3;
+    --color-dust: #8b909b;
+    --color-earth: #6fb6ff;
+    --color-sunlit: #f2e6c9;
+
+    --text-hero: clamp(2.25rem, 8.6vw, 9rem);
+    --text-hero--line-height: 1;
+    --text-hero--letter-spacing: 0.24em;
+
+    --text-display: clamp(1.75rem, 4vw, 3.75rem);
+    --text-display--line-height: 1.08;
+    --text-display--letter-spacing: 0.02em;
+
+    --text-lead: clamp(1.125rem, 1.6vw, 1.5rem);
+    --text-lead--line-height: 1.45;
+    --text-lead--letter-spacing: -0.01em;
+
+    --text-body: clamp(0.9375rem, 1.05vw, 1.0625rem);
+    --text-body--line-height: 1.65;
+    --text-body--letter-spacing: -0.005em;
+
+    --text-label: 0.6875rem;
+    --text-label--line-height: 1.3;
+    --text-label--letter-spacing: 0.16em;
 }
 
-body {
-  background: #000000;
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+    html {
+        -webkit-text-size-adjust: 100%;
+        background: var(--color-void);
+        scrollbar-color: var(--color-dust) var(--color-void);
+    }
+    body {
+        margin: 0;
+        background: var(--color-void);
+        color: var(--color-regolith);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: clip;
+    }
+    ::selection {
+        background: var(--color-earth);
+        color: var(--color-void);
+    }
+    :focus-visible {
+        outline: 1.5px solid var(--color-earth);
+        outline-offset: 3px;
+        border-radius: 4px;
+    }
 }
 
-/* Glass utilities for Three.js migration */
-.glass {
-  background: rgba(15, 15, 15, 0.6);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+@layer utilities {
+    .h-screen-s {
+        height: 100svh;
+    }
+
+    .brackets {
+        background:
+            linear-gradient(currentColor, currentColor) top left / 14px 1px,
+            linear-gradient(currentColor, currentColor) top left / 1px 14px,
+            linear-gradient(currentColor, currentColor) top right / 14px 1px,
+            linear-gradient(currentColor, currentColor) top right / 1px 14px,
+            linear-gradient(currentColor, currentColor) bottom left / 14px 1px,
+            linear-gradient(currentColor, currentColor) bottom left / 1px 14px,
+            linear-gradient(currentColor, currentColor) bottom right / 14px 1px,
+            linear-gradient(currentColor, currentColor) bottom right / 1px 14px;
+        background-repeat: no-repeat;
+    }
+
+    [data-reveal] {
+        opacity: 0;
+        transform: translate3d(0, 24px, 0);
+        transition:
+            opacity 1s cubic-bezier(0.2, 0.7, 0.1, 1),
+            transform 1s cubic-bezier(0.2, 0.7, 0.1, 1);
+    }
+    [data-reveal].is-in {
+        opacity: 1;
+        transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        [data-reveal] {
+            transform: none;
+        }
+    }
 }
 
-.glass-strong {
-  background: rgba(20, 20, 20, 0.75);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(34, 211, 238, 0.15);
-}
-
-.hover-3d {
-  transform-style: preserve-3d;
-  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s, box-shadow 0.3s;
-}
-.hover-3d:hover {
-  transform: translateY(-6px) rotateX(2deg) rotateY(-2deg);
-  border-color: rgba(34, 211, 238, 0.3);
-  box-shadow: 0 20px 40px -10px rgba(34, 211, 238, 0.15), 0 10px 20px -5px rgba(0,0,0,0.5);
+@keyframes leg-in {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 12px, 0);
+    }
 }

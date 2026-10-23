@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Separate Vite project with its own tooling and tsconfig.
+    "selene/**",
   ]),
 ]);
 
