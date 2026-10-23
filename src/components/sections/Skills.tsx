@@ -1,11 +1,8 @@
 import { SKILL_GROUPS } from "@/data/profile";
-import SkillsNetworkWrapper from "@/components/three/SkillsNetworkWrapper";
 
 export default function Skills() {
     return (
         <section className="relative flex max-w-4xl flex-col gap-8 overflow-hidden rounded-2xl p-1" aria-labelledby="skills-title">
-        <SkillsNetworkWrapper />
-
         <h2 id="skills-title" className="relative z-10 text-2xl font-semibold text-white">
             Skills
         </h2>

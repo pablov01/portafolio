@@ -1,5 +1,4 @@
 import "./globals.css";
-import SceneWrapper from "@/components/three/SceneWrapper";
 
 export const metadata = {
   title: "Pablo Villalba | Portfolio",
@@ -20,7 +19,6 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <SceneWrapper />
         <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-10">
           {children}
         </div>
