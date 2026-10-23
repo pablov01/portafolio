@@ -57,7 +57,7 @@ export const PATH = {
         {
             day: orderedExperience[2].period.split(" — ")[0],
             title: "Self-hosted infrastructure",
-            body: `${orderedExperience[2].company}. ${orderedExperience[2].description}`,
+            body: orderedExperience[2].description,
         },
         {
             day: "Now",
@@ -136,13 +136,25 @@ export const CONTACT = {
             href: PROFILE.links.linkedin,
             note: "Work history and direct messages.",
         },
-        {
-            label: "Résumé",
-            value: "resume.pdf",
-            href: "/resume.pdf",
-            note: "One page, always current.",
-        },
     ],
+    resume: {
+        label: "Résumé",
+        note: "Two pages · English and Spanish",
+        versions: [
+            {
+                language: "English",
+                code: "EN",
+                href: "/documents/resume-en.pdf",
+                download: "Pablo-Villalba-Resume-EN.pdf",
+            },
+            {
+                language: "Español",
+                code: "ES",
+                href: "/documents/resume-es.pdf",
+                download: "Pablo-Villalba-CV-ES.pdf",
+            },
+        ],
+    },
 } as const;
 
 export const SKILLS = SKILL_GROUPS;

@@ -132,6 +132,43 @@ export function ContactSection() {
                         </a>
                     ))}
 
+                    <div className="rounded-[4px] bg-white/[0.04] px-4 py-4 ring-1 ring-white/15 md:px-5 md:py-5">
+                        <div className="flex items-start justify-between gap-4">
+                            <span className="min-w-0">
+                                <span className="block font-mono text-label text-regolith/60 uppercase">
+                                    {CONTACT.resume.label}
+                                </span>
+                                <span className="mt-1 block text-[0.8125rem] text-regolith/45">
+                                    {CONTACT.resume.note}
+                                </span>
+                            </span>
+                            <span
+                                aria-hidden="true"
+                                className="shrink-0 font-mono text-lg text-earth"
+                            >
+                                ↓
+                            </span>
+                        </div>
+
+                        <div className="mt-4 grid grid-cols-2 gap-2">
+                            {CONTACT.resume.versions.map((version) => (
+                                <a
+                                    key={version.code}
+                                    href={version.href}
+                                    download={version.download}
+                                    aria-label={`Download the ${version.language} résumé as PDF`}
+                                    className="group flex items-center justify-between gap-2 rounded-[3px] px-3 py-2.5 font-mono text-[0.625rem] tracking-[0.12em] uppercase ring-1 ring-white/15 transition-colors hover:bg-white hover:text-void"
+                                >
+                                    <span>{version.language}</span>
+                                    <span className="flex items-center gap-1.5 text-earth transition-colors group-hover:text-void">
+                                        {version.code}
+                                        <span aria-hidden="true">↓</span>
+                                    </span>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
                     <p className="pt-4 font-mono text-[0.625rem] leading-relaxed tracking-[0.14em] text-regolith/40 uppercase">
                         {PROFILE.location} · Remote friendly · Replies within a
                         day

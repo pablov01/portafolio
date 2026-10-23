@@ -14,8 +14,8 @@ const MOON = { cx: 985, cy: 300, r: 46 };
 
 const LEGS = [
     `M${EARTH.cx} ${EARTH.cy - 128} a128 128 0 1 1 -0.1 0 a128 128 0 0 1 106 57`,
-    `M${EARTH.cx + 106} ${EARTH.cy - 71} C 520 40, 820 70, ${MOON.cx - 20} ${MOON.cy - 84}`,
-    `M${MOON.cx - 20} ${MOON.cy - 84} a86 86 0 1 1 -0.1 0.2 a86 86 0 0 1 20 1`,
+    `M${EARTH.cx + 106} ${EARTH.cy - 71} C 520 40, 820 70, ${MOON.cx} ${MOON.cy - 86}`,
+    `M${MOON.cx} ${MOON.cy - 86} A 86 86 0 0 1 ${MOON.cx} ${MOON.cy + 86} A 86 86 0 0 1 ${MOON.cx} ${MOON.cy - 86}`,
     `M${MOON.cx} ${MOON.cy - 86} Q ${MOON.cx + 40} ${MOON.cy - 70} ${MOON.cx + 30} ${MOON.cy - 36}`,
 ];
 
